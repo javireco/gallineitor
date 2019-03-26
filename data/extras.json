@@ -1,0 +1,10 @@
+{
+  "egg":{"sx":0,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28},
+	"hamburger":{"sx":28,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28},
+	"helado":{"sx":56,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28},
+	"maiz":{"sx":84,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28},
+	"pizza":{"sx":112,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28},
+	"polo":{"sx":140,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28},
+	"reloj":{"sx":168,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28},
+	"trigo":{"sx":196,"sy":0,"cols":1,"tilew":28,"frames":1,"tileh":28}
+}
