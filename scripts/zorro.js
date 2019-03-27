@@ -21,18 +21,24 @@ Quintus.ZorroScript = function(Q) {
 					//this.destroy();
 					//console.log(Q.state.get("score"));
 
-					if (Q.state.get("score")>0){
-						collision.obj.children[0].show();
-						collision.obj.children[0].play("blink");
-					}
-					collision.obj.losePoints();
-					collision.obj.saltito();
-					//console.log(this);
-					this.saltito();
-					//animaEgg.play("blink");
-					//actualiza marcador
-					Q.stageScene("hud", 3, collision.obj.p);
+					if (collision.obj.p.status=="fast"){
+						  this.destroy();
+						  collision.obj.p.vy = -100;
+							Q.audio.play("fox.mp3");
+					}else{
 
+						if (Q.state.get("score")>0){
+							collision.obj.children[0].show();
+							collision.obj.children[0].play("blink");
+						}
+						collision.obj.losePoints();
+						collision.obj.saltito();
+						//console.log(this);
+						this.saltito();
+						//animaEgg.play("blink");
+						//actualiza marcador
+						Q.stageScene("hud", 3, collision.obj.p);
+					}
 	      }
 	    });
 			entity.on("bump.top",function(collision) {
