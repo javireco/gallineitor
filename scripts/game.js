@@ -114,7 +114,7 @@ window.addEventListener("load",function() {
 
   //carga las animaciones de la gallina
   Q.animations('egg', {
-    blink: { frames: [0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0], rate: 4/15, loop: false},
+    blink: { frames: [0,0,1,1,0,0,1,1,0], rate: 4/15, loop: false},
     normal: { frames: [0], rate: 2/15}
   });
 
@@ -147,6 +147,26 @@ window.addEventListener("load",function() {
   Q.state.set("maxScoreGolden",0);
   Q.state.set("time",100);
   Q.state.set("previousTime",-1);
+  Q.state.set("timeLevel[0]",80);
+  Q.state.set("timeLevel[1]",80);
+  Q.state.set("timeLevel[2]",80);
+  Q.state.set("timeLevel[3]",80);
+  Q.state.set("timeLevel[4]",80);
+  Q.state.set("timeLevel[5]",80);
+  Q.state.set("timeLevel[6]",80);
+  Q.state.set("timeLevel[7]",80);
+  Q.state.set("timeLevel[8]",80);
+  Q.state.set("timeLevel[9]",80);
+  Q.state.set("timeLevel[10]",80);
+  Q.state.set("timeLevel[11]",80);
+  Q.state.set("timeLevel[12]",80);
+  Q.state.set("timeLevel[13]",80);
+  Q.state.set("timeLevel[14]",80);
+  Q.state.set("timeLevel[15]",80);
+  Q.state.set("timeLevel[16]",80);
+  Q.state.set("timeLevel[17]",80);
+  Q.state.set("timeLevel[18]",80);
+  Q.state.set("timeLevel[19]",80);
   Q.state.set("levelEggs",[]);
   Q.state.set("papagenofast",false);
   for (i=0 ; i<20 ; i++){
@@ -173,7 +193,7 @@ window.addEventListener("load",function() {
     //Egg.play("normal");
     Q.stage().insert(animaEgg, player);
     //console.log("inicializar time");
-    Q.state.set("time",100);
+    Q.state.set("time",Q.state.get("timeLevel[" + (Q.state.get("level")-1) + "]"));
     Q.state.set("previousTime",-1);
     //con esta variable podría hacer algo a todos los huevos a la vez, como un evento o una funcion
     Q.state.set("eggsInScene",Q("Egg"));
@@ -568,6 +588,7 @@ window.addEventListener("load",function() {
 
 
   });
+
 
   //con esto puedo tocar en cualquier lado de la pantalla
   /*window.addEventListener("touchstart", function () {

@@ -4,22 +4,8 @@ Quintus.ZorroScript = function(Q) {
 	  added: function() {
 	    var entity = this.entity;
 			//si lo tocan al huevo por cualquier lado
-	    entity.on("bump.left,bump.right,bump.bottom",function(collision) {
+	    entity.on("bump.left,bump.right",function(collision) {
 				if(collision.obj.isA("Player")&&!this.p.hasCollide) {
-	        //da un pequeño bote
-	        //collision.obj.p.vy = -100;
-					//suma puntos a player
-
-					//desaparece el huevo
-					//this.destroy();
-					//this.isdestroyed=false;
-					//console.log(this);
-					//this.p.sprite.hide()
-
-					//this.p.hasCollide=true;
-					//console.log(this.p);
-					//this.destroy();
-					//console.log(Q.state.get("score"));
 
 					if (collision.obj.p.status=="fast"){
 						  this.destroy();
@@ -41,6 +27,31 @@ Quintus.ZorroScript = function(Q) {
 					}
 	      }
 	    });
+
+			entity.on("bump.bottom",function(collision) {
+				if(collision.obj.isA("Player")&&!this.p.hasCollide) {
+
+					if (collision.obj.p.status=="fast"){
+						  this.destroy();
+						  collision.obj.p.vy = -100;
+							Q.audio.play("fox.mp3");
+					}else{
+
+						if (Q.state.get("score")>0){
+							collision.obj.children[0].show();
+							collision.obj.children[0].play("blink");
+						}
+						collision.obj.losePoints();
+						//collision.obj.saltito();
+						//console.log(this);
+						this.saltito();
+						//animaEgg.play("blink");
+						//actualiza marcador
+						Q.stageScene("hud", 3, collision.obj.p);
+					}
+	      }
+	    });
+
 			entity.on("bump.top",function(collision) {
 				if(collision.obj.isA("Player")){
 				  this.destroy();
