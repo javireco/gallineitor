@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="18" height="53" tilewidth="28" tileheight="28" infinite="0" nextlayerid="113" nextobjectid="1296">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="18" height="53" tilewidth="28" tileheight="28" infinite="0" nextlayerid="113" nextobjectid="1305">
  <tileset firstgid="1" name="GallinatorSprite" tilewidth="28" tileheight="28" tilecount="100" columns="10">
   <image source="../images/GallinatorTile.png" width="280" height="280"/>
   <tile id="0">

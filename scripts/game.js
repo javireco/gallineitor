@@ -84,20 +84,23 @@ window.addEventListener("load",function() {
   Q.animations('gallina', {
     jump_normal: { frames: [5,6], rate: 1/15},
     fall_normal: { frames: [7], rate: 15/15},
-    run_right_normal: { frames: [1,2,3,4], rate: 3/15},
-    run_left_normal: { frames: [1,2,3,4], rate: 3/15},
+    run_normal: { frames: [1,2,3,4], rate: 3/15},
     jump_fat: { frames: [18,19], rate: 1/15},
     fall_fat: { frames: [20], rate: 15/15},
-    run_right_fat: { frames: [14,15,16,17], rate: 3/15},
-    run_left_fat: { frames: [14,15,16,17], rate: 3/15},
+    run_fat: { frames: [14,15,16,17], rate: 3/15},
     jump_fast: { frames: [9,10,11,12], rate: 2/15},
     fall_fast: { frames: [9,10,11,12], rate: 2/15},
-    run_right_fast: { frames: [9,10,11,12], rate: 2/15},
-    run_left_fast: { frames: [9,10,11,12], rate: 2/15},
+    run_fast: { frames: [9,10,11,12], rate: 2/15},
     jump_frozen: { frames: [22,23], rate: 1/15},
     fall_frozen: { frames: [22,23], rate: 1/15},
-    run_right_frozen: { frames: [22,23], rate: 1/15},
-    run_left_frozen: { frames: [22,23], rate: 1/15},
+    run_frozen: { frames: [22,23], rate: 1/15},
+    //damage
+    jump_normal_damage: { frames: [5,25,6,25], rate: 3/15},
+    fall_normal_damage: { frames: [7,25], rate: 3/15},
+    run_normal_damage: { frames: [25,1,25,2,25,3,25,4], rate: 3/15},
+    jump_fat_damage: { frames: [18,25,19,25], rate: 3/15},
+    fall_fat_damage: { frames: [20,25], rate: 3/15},
+    run_fat_damage: { frames: [25,14,25,15,25,16,25,17], rate: 3/15},
   });
 
   Q.animations('zorro', {
@@ -147,14 +150,14 @@ window.addEventListener("load",function() {
   Q.state.set("maxScoreGolden",0);
   Q.state.set("time",100);
   Q.state.set("previousTime",-1);
-  Q.state.set("timeLevel[0]",80);
+  Q.state.set("timeLevel[0]",60);
   Q.state.set("timeLevel[1]",80);
   Q.state.set("timeLevel[2]",80);
-  Q.state.set("timeLevel[3]",80);
+  Q.state.set("timeLevel[3]",60);
   Q.state.set("timeLevel[4]",80);
-  Q.state.set("timeLevel[5]",80);
-  Q.state.set("timeLevel[6]",80);
-  Q.state.set("timeLevel[7]",80);
+  Q.state.set("timeLevel[5]",100);
+  Q.state.set("timeLevel[6]",100);
+  Q.state.set("timeLevel[7]",100);
   Q.state.set("timeLevel[8]",80);
   Q.state.set("timeLevel[9]",80);
   Q.state.set("timeLevel[10]",80);
@@ -253,8 +256,9 @@ window.addEventListener("load",function() {
         //console.log("mute" + Q.state.get("mute"));
         //console.log("papagenofast" + Q.state.get("papagenofast"));
         if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
-            Q.audio.stop('papageno.mp3');
+
             if (!Q.state.get("papagenofast")){
+              Q.audio.stop('papageno.mp3');
               Q.audio.play('papagenofast.mp3',{ loop:true });
               Q.state.set("papagenofast",true);
             }
@@ -441,7 +445,7 @@ window.addEventListener("load",function() {
       var container = stage.insert(new Q.UI.Container({
         x: Q.width/2, y: Q.height/2,w:Q.width,h:Q.height, fill: "rgba(0,0,0,0.8)"
       }));
-      //var gallinafrozen = container.insert(new Q.Sprite({asset:"gallinafrozen.gif",,x:0, y: 0}));
+      var gallinafrozen = container.insert(new Q.Sprite({asset:"gallinafrozen.png",x:0, y: 0,scale:6}));
       //console.log("hola");
       //var buttonPause = container.insert(new Q.UI.Button({ asset:"gallinafrozenpause.png",x: 2, y: 2, family:"courier",align:"center",scale:5}));
       var buttonPause = container.insert(new Q.UI.Button({ asset:"pause.png" ,x: 192, y: -78}));
@@ -568,7 +572,7 @@ window.addEventListener("load",function() {
         });
 
     //load assets
-    Q.load("muelle.png,muelle.json,portada.png,nextlevelgood.png,nextlevelsuper.png,nextlevellose.png,hudegg.png,tickegg.png,hudreloj.png,hudegggolden.png,egggolden.png,egggolden.json,egg.png,egg.json,extras.png,extras.json,pause.png,restart.png,mute.png,unmute.png,muteMusic.png,play.png,next.png,maderabackground.png,gallina.png,gallina.json,   home.png,home.json,levels.png,choselevel.png,close.png,changeDirection.png,changeDirection.json,loseEggs.png,loseEggs.json,zorro.png,zorro.json,plataformas.png,plataformas.json");
+    Q.load("gallinafrozen.png,muelle.png,muelle.json,portada.png,nextlevelgood.png,nextlevelsuper.png,nextlevellose.png,hudegg.png,tickegg.png,hudreloj.png,hudegggolden.png,egggolden.png,egggolden.json,egg.png,egg.json,extras.png,extras.json,pause.png,restart.png,mute.png,unmute.png,muteMusic.png,play.png,next.png,maderabackground.png,gallina.png,gallina.json,   home.png,home.json,levels.png,choselevel.png,close.png,changeDirection.png,changeDirection.json,loseEggs.png,loseEggs.json,zorro.png,zorro.json,plataformas.png,plataformas.json");
     Q.load("frozen.mp3,eat.mp3,supersalto.mp3,egg.mp3,salto.mp3,egggolden.mp3,home.mp3,clock.mp3,changeDirection.mp3,loseEggs.mp3,fox.mp3,ohh.mp3");
     Q.load("papageno.mp3,papagenofast.mp3");
     Q.loadTMX("level1.tmx,level2.tmx,level3.tmx,level4.tmx,level5.tmx,level6.tmx,level7.tmx,level8.tmx,level9.tmx,level10.tmx,level11.tmx,level12.tmx,level13.tmx,level14.tmx,level15.tmx,level16.tmx,level17.tmx,level18.tmx,level19.tmx,level20.tmx,background1-1.png,background2-1.png,background3-1.png,background4-1.png,background1-2.png,background2-2.png,background3-2.png,background4-2.png,background1-3.png,background2-3.png,background3-3.png,background4-3.png,background1-4.png,background2-4.png,background3-4.png,background4-4.png,background1-5.png,background2-5.png,background3-5.png,background4-5.png,background1-6.png,background2-6.png,background3-6.png,background4-6.png,background1-7.png,background2-7.png,background3-7.png,background4-7.png,background1-8.png,background2-8.png,background3-8.png,background4-8.png,background1-9.png,background2-9.png,background3-9.png,background4-9.png,background1-10.png,background2-10.png,background3-10.png,background4-10.png,background1-11.png,background2-11.png,background3-11.png,background4-11.png,background1-12.png,background2-12.png,background3-12.png,background4-12.png,background1-13.png,background2-13.png,background3-13.png,background4-13.png,background1-14.png,background2-14.png,background3-14.png,background4-14.png,background1-15.png,background2-15.png,background3-15.png,background4-15.png,background1-16.png,background2-16.png,background3-16.png,background4-16.png,background1-17.png,background2-17.png,background3-17.png,background4-17.png,background1-18.png,background2-18.png,background3-18.png,background4-18.png,background1-19.png,background2-19.png,background3-19.png,background4-19.png,background1-20.png,background2-20.png,background3-20.png,background4-20.png", function() {

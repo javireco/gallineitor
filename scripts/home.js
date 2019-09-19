@@ -6,10 +6,10 @@ Quintus.HomeScript = function(Q) {
 			//si lo tocan al huevo por cualquier lado
 	    entity.on("hit",function(collision) {
 				//console.log("llega a casa");
-				if (!Q.state.get("mute")){
-					Q.audio.play('home.mp3');
-				}
 	      if(collision.obj.isA("Player") && Q.state.get("score")==Q.state.get("maxScore")){
+					if (!Q.state.get("mute")){
+						Q.audio.play('home.mp3');
+					}
 					tipoHuevo ="white";
 					if ( Q.state.get("scoreGolden") == Q.state.get("maxScoreGolden") ){
 							tipoHuevo="gold";

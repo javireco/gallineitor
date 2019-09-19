@@ -9,6 +9,8 @@ Quintus.PlayerScript = function(Q) {
         jumpSpeed: -470,
         speed: 0,
         isJumping: false,
+        damage: false,
+        timeDamage:3,
                 //normal 80, lento 40, rápido 200,frozen 0
         vx: 80,
         gravity:1,
@@ -50,19 +52,31 @@ Quintus.PlayerScript = function(Q) {
       }
       if(this.p.isJumping) {
         if(this.p.vy < 0) {
-          this.play("jump_" + this.p.status);
+          if ( this.p.damage ){
+            this.play("jump_" + this.p.status+ "_damage");
+          }else{
+            this.play("jump_" + this.p.status);
+          }
         } else if(this.p.vy >= 0) {
-          this.play("fall_" + this.p.status);
+          if ( this.p.damage ){
+            this.play("fall_" + this.p.status+ "_damage");
+          }else{
+            this.play("fall_" + this.p.status);
+          }
         }
       }else{
         if(this.p.vy > 0) {
-          this.play("fall_" + this.p.status);
+          if ( this.p.damage ){
+            this.play("fall_" + this.p.status+ "_damage");
+          }else{
+            this.play("fall_" + this.p.status);
+          }
         }else
-        if(this.p.vx >= 0) {
-          this.play("run_right_" + this.p.status);
-        } else if(this.p.vx < 0) {
-          this.play("run_left_" + this.p.status);
-        }
+          if ( this.p.damage ){
+            this.play("run_" + this.p.status + "_damage");
+          }else{
+            this.play("run_" + this.p.status);
+          }
       }
       //control del tiempo que le queda
 
@@ -78,8 +92,18 @@ Quintus.PlayerScript = function(Q) {
               this.setStatus("normal",0);
             }
           }
+
+          if (this.p.damage){
+            this.p.timeDamage--;
+            //console.log(this.p.timeForStatus);
+            if (this.p.timeDamage==0){
+              this.p.damage=false;
+            }
+          }
           Q.stageScene("hud", 3, this.p);
         }
+
+
 
       }
 
@@ -110,6 +134,11 @@ Quintus.PlayerScript = function(Q) {
           egg.play("normal");
         //}
       }*/
+    },
+    damage: function() {
+                  //console.log(Q.state.get("eggsInScene"));
+      this.p.damage = true;
+      this.p.timeDamage = 4;
     },
     losePoints: function() {
                   //console.log(Q.state.get("eggsInScene"));
@@ -176,11 +205,13 @@ Quintus.PlayerScript = function(Q) {
     superSalto: function() {
       if ( !Q.stage(0).paused ){
         this.p.vy=-940;
+        this.p.isJumping = true;
       }
     },
     saltito: function() {
       if ( !Q.stage(0).paused ){
         this.p.vy=-280;
+        this.p.isJumping = true;
       }
     },
     changeDirection: function(){
@@ -209,17 +240,20 @@ Quintus.PlayerScript = function(Q) {
         this.p.jumpSpeed= -530;
         //normal 80, lento 40, rápido 200,frozen 0
         this.p.vx= 120* this.p.direction;
+        this.p.damage=false;
 
       }else if (pStatus=="fat"){
         //normal -450. lento -300. rápido -600,frozen 0
         this.p.jumpSpeed= -400;
         //normal 80, lento 40, rápido 200,frozen 0
         this.p.vx= 30* this.p.direction;
+
       }else if (pStatus=="frozen"){
         //normal -450. lento -300. rápido -600,frozen 0
         this.p.jumpSpeed= 0;
         //normal 80, lento 40, rápido 200,frozen 0
-        this.p.vx= 0;
+        this.p.vx= 0.01* this.p.direction;
+        this.p.damage=false;
         //this.p.gravity=0;
       }
     },
