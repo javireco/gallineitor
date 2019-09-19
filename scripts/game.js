@@ -445,7 +445,7 @@ window.addEventListener("load",function() {
       var container = stage.insert(new Q.UI.Container({
         x: Q.width/2, y: Q.height/2,w:Q.width,h:Q.height, fill: "rgba(0,0,0,0.8)"
       }));
-      var gallinafrozen = container.insert(new Q.Sprite({asset:"gallinafrozen.png",x:0, y: 0,scale:6}));
+      var gallinafrozen  = container.insert(new Q.Sprite({asset:"gallinafrozen.png",x:0, y: 0,scale:6}));
       //console.log("hola");
       //var buttonPause = container.insert(new Q.UI.Button({ asset:"gallinafrozenpause.png",x: 2, y: 2, family:"courier",align:"center",scale:5}));
       var buttonPause = container.insert(new Q.UI.Button({ asset:"pause.png" ,x: 192, y: -78}));
