@@ -2137,7 +2137,7 @@
   </data>
  </layer>
  <objectgroup id="89" name="home">
-  <object id="3003" gid="92" x="140" y="63" width="28" height="28"/>
+  <object id="3003" gid="92" x="140" y="67" width="28" height="28"/>
  </objectgroup>
  <objectgroup id="90" name="player and eggs">
   <object id="2976" gid="91" x="140" y="1456" width="28" height="28"/>
