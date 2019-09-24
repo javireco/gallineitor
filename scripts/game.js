@@ -378,6 +378,21 @@ window.addEventListener("load",function() {
             }
           });
 
+          var buttonhow = container2.insert(new Q.UI.Button({ asset:"howbutton.png" ,x: 62, y: 87}));
+
+          buttonhow.on("click",function() {
+            if (!Q.state.get("pause")){
+              Q.state.set("pause",true);
+              Q.stage(0).pause();
+              Q.stage(1).pause();
+              //Q.stage(3).pause();
+              Q.clearStage(3);
+              Q.audio.stop();
+              Q.state.set("papagenofast",false);
+              Q.stageScene("howtoplay",2, { });
+            }
+          });
+
           var label = container2.insert(new Q.UI.Text({x:30, y: 150,size:9,family:"chalkduster,Mansalva,courier",align:"left",
           label: "GALLINATOR" , color: "white",outlineWidth:0,opacity:1 }));
     //console.log(container);
@@ -484,7 +499,7 @@ window.addEventListener("load",function() {
                   Q.state.set("levelEggs[8]",1);
                     Q.state.set("levelEggs[9]",2);*/
 
-        var image = container.insert(new Q.Sprite({asset:"howtoplay.png",x:0, y: 0}));
+        var image = container.insert(new Q.Sprite({asset:"levels.png",x:0, y: 0}));
         //console.log("hola");
         //var buttonPause = container.insert(new Q.UI.Button({ asset:"gallinafrozenpause.png",x: 2, y: 2, family:"courier",align:"center",scale:5}));
         var buttonClose = container.insert(new Q.UI.Button({ asset:"close.png" ,x: 230, y: -44}));
@@ -539,6 +554,42 @@ window.addEventListener("load",function() {
           }
         });
 
+
+
+
+        Q.scene('howtoplay',function(stage) {
+          var container = stage.insert(new Q.UI.Container({
+            x: Q.width/2, y: Q.height/2,w:Q.width,h:Q.height, fill: "rgba(0,0,0,0.8)"
+          }));
+
+
+          var image = container.insert(new Q.Sprite({asset:"howtoplay.png",x:0, y: 0}));
+          //console.log("hola");
+          //var buttonPause = container.insert(new Q.UI.Button({ asset:"gallinafrozenpause.png",x: 2, y: 2, family:"courier",align:"center",scale:5}));
+          var buttonClose = container.insert(new Q.UI.Button({ asset:"close.png" ,x: 228, y: -79}));
+          //var label = container.insert(new Q.UI.Text({x:0, y: buttonPause.p.h*1.5  ,family:"courier",align:"center",label: "paused" }));
+            buttonClose.on("click",function() {
+              Q.stage(0).unpause();
+              if ( Q.stage(1)==null ){
+                Q.stageScene("portada");
+              }else{
+                Q.stage(1).unpause();
+                //Q.stage(3).unpause();
+                Q.state.set("pause",false);
+                Q.clearStage(2);
+                if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
+                  Q.audio.stop('papageno.mp3');
+                  Q.audio.play('papageno.mp3',{ loop: true });
+                }
+              }
+            });
+          });
+
+
+
+
+
+
       Q.scene('portada',function(stage) {
 
         var container = stage.insert(new Q.UI.Container({
@@ -575,7 +626,7 @@ window.addEventListener("load",function() {
     Q.load("gallinafrozen.png,muelle.png,muelle.json,portada.png,nextlevelgood.png,nextlevelsuper.png,nextlevellose.png,hudegg.png,tickegg.png,hudreloj.png,hudegggolden.png,egggolden.png,egggolden.json,egg.png,egg.json,extras.png,extras.json,pause.png,restart.png,mute.png,unmute.png,muteMusic.png,play.png,next.png,maderabackground.png,gallina.png,gallina.json,   home.png,home.json,levels.png,choselevel.png,close.png,changeDirection.png,changeDirection.json,loseEggs.png,loseEggs.json,zorro.png,zorro.json,plataformas.png,plataformas.json");
     Q.load("frozen.mp3,eat.mp3,supersalto.mp3,egg.mp3,salto.mp3,egggolden.mp3,home.mp3,clock.mp3,changeDirection.mp3,loseEggs.mp3,fox.mp3,ohh.mp3");
     Q.load("papageno.mp3,papagenofast.mp3");
-    Q.loadTMX("howtoplay.png,level1.tmx,level2.tmx,level3.tmx,level4.tmx,level5.tmx,level6.tmx,level7.tmx,level8.tmx,level9.tmx,level10.tmx,level11.tmx,level12.tmx,level13.tmx,level14.tmx,level15.tmx,level16.tmx,level17.tmx,level18.tmx,level19.tmx,level20.tmx,background1-1.png,background2-1.png,background3-1.png,background4-1.png,background1-2.png,background2-2.png,background3-2.png,background4-2.png,background1-3.png,background2-3.png,background3-3.png,background4-3.png,background1-4.png,background2-4.png,background3-4.png,background4-4.png,background1-5.png,background2-5.png,background3-5.png,background4-5.png,background1-6.png,background2-6.png,background3-6.png,background4-6.png,background1-7.png,background2-7.png,background3-7.png,background4-7.png,background1-8.png,background2-8.png,background3-8.png,background4-8.png,background1-9.png,background2-9.png,background3-9.png,background4-9.png,background1-10.png,background2-10.png,background3-10.png,background4-10.png,background1-11.png,background2-11.png,background3-11.png,background4-11.png,background1-12.png,background2-12.png,background3-12.png,background4-12.png,background1-13.png,background2-13.png,background3-13.png,background4-13.png,background1-14.png,background2-14.png,background3-14.png,background4-14.png,background1-15.png,background2-15.png,background3-15.png,background4-15.png,background1-16.png,background2-16.png,background3-16.png,background4-16.png,background1-17.png,background2-17.png,background3-17.png,background4-17.png,background1-18.png,background2-18.png,background3-18.png,background4-18.png,background1-19.png,background2-19.png,background3-19.png,background4-19.png,background1-20.png,background2-20.png,background3-20.png,background4-20.png", function() {
+    Q.loadTMX("howtoplay.png,howbutton.png,level1.tmx,level2.tmx,level3.tmx,level4.tmx,level5.tmx,level6.tmx,level7.tmx,level8.tmx,level9.tmx,level10.tmx,level11.tmx,level12.tmx,level13.tmx,level14.tmx,level15.tmx,level16.tmx,level17.tmx,level18.tmx,level19.tmx,level20.tmx,background1-1.png,background2-1.png,background3-1.png,background4-1.png,background1-2.png,background2-2.png,background3-2.png,background4-2.png,background1-3.png,background2-3.png,background3-3.png,background4-3.png,background1-4.png,background2-4.png,background3-4.png,background4-4.png,background1-5.png,background2-5.png,background3-5.png,background4-5.png,background1-6.png,background2-6.png,background3-6.png,background4-6.png,background1-7.png,background2-7.png,background3-7.png,background4-7.png,background1-8.png,background2-8.png,background3-8.png,background4-8.png,background1-9.png,background2-9.png,background3-9.png,background4-9.png,background1-10.png,background2-10.png,background3-10.png,background4-10.png,background1-11.png,background2-11.png,background3-11.png,background4-11.png,background1-12.png,background2-12.png,background3-12.png,background4-12.png,background1-13.png,background2-13.png,background3-13.png,background4-13.png,background1-14.png,background2-14.png,background3-14.png,background4-14.png,background1-15.png,background2-15.png,background3-15.png,background4-15.png,background1-16.png,background2-16.png,background3-16.png,background4-16.png,background1-17.png,background2-17.png,background3-17.png,background4-17.png,background1-18.png,background2-18.png,background3-18.png,background4-18.png,background1-19.png,background2-19.png,background3-19.png,background4-19.png,background1-20.png,background2-20.png,background3-20.png,background4-20.png", function() {
       Q.compileSheets("plataformas.png","plataformas.json");
       Q.compileSheets("gallina.png","gallina.json");
       Q.compileSheets("zorro.png","zorro.json");
