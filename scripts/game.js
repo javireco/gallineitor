@@ -231,18 +231,18 @@ window.addEventListener("load",function() {
           labelColor = "white";
         }
       }
-      var label = container.insert(new Q.UI.Text({x:40, y: 52,size:17,family:"chalkduster,eraser,courier",align:"left",outlineWidth:0,opacity:1,
+      var label = container.insert(new Q.UI.Text({x:40, y: 52,size:17,family:"chalkduster,Permanent Marker,courier",align:"left",outlineWidth:0,opacity:1,
       label: "" + (Q.state.get("maxScore") - Q.state.get("score")) , color: labelColor, outline: "white" }));
     }else{
       var tickegg = container.insert(new Q.Sprite({asset:"tickegg.png",x:48, y: 53}));
     }
     if ( (Q.state.get("maxScoreGolden") - Q.state.get("scoreGolden"))>0 ){
-      var label = container.insert(new Q.UI.Text({x:40, y: 77,size:17,family:"chalkduster,eraser,courier",align:"left",
+      var label = container.insert(new Q.UI.Text({x:40, y: 77,size:17,family:"chalkduster,Permanent Marker,courier",align:"left",
       label: "" + (Q.state.get("maxScoreGolden") - Q.state.get("scoreGolden")) , color: "white",outlineWidth:0,opacity:1 }));
     }else{
       var tickegg = container.insert(new Q.Sprite({asset:"tickegg.png",x:48, y: 82}));
     }
-    var label = container.insert(new Q.UI.Text({x:14, y: 150,size:11,family:"chalkduster,eraser,courier",align:"left",
+    var label = container.insert(new Q.UI.Text({x:14, y: 150,size:11,family:"chalkduster,Permanent Marker,courier",align:"left",
     label: "LEVEL " + (Q.state.get("level") ) , color: "white",outlineWidth:0,opacity:1 }));
     //var label = container.insert(new Q.UI.Text({x:20, y: 146,size:17,family:"chalkduster,courier",align:"left",
     //label: "LEVEL " + (Q.state.get("level") ) , color: "white",outlineWidth:0,opacity:1 }));
@@ -276,7 +276,7 @@ window.addEventListener("load",function() {
           }
         }
       }
-      var label = container.insert(new Q.UI.Text({x:40, y: 108,size:17,family:"chalkduster,eraser,courier",align:"left",outlineWidth:0,opacity:1,
+      var label = container.insert(new Q.UI.Text({x:40, y: 108,size:17,family:"chalkduster,Permanent Marker,courier",align:"left",outlineWidth:0,opacity:1,
       label: "" + Math.round(Q.state.get("time")) , color: colorTime, outline: colorTime }));
       //console.log(stage.options.win);
       if (stage.options.timeForStatus>0 && stage.options.status!="normal" && !stage.options.win && !Q.state.get("pause")){
@@ -378,7 +378,7 @@ window.addEventListener("load",function() {
             }
           });
 
-          var label = container2.insert(new Q.UI.Text({x:30, y: 150,size:9,family:"chalkduster,eraser,courier",align:"left",
+          var label = container2.insert(new Q.UI.Text({x:30, y: 150,size:9,family:"chalkduster,Permanent Marker,courier",align:"left",
           label: "GALLINATOR" , color: "white",outlineWidth:0,opacity:1 }));
     //console.log(container);
     //container.fit(400);
@@ -507,7 +507,7 @@ window.addEventListener("load",function() {
 
 
 
-          label = container.insert(new Q.UI.Text({ x: 0, y: -120, family:"chalkduster,eraser,courier",align:"center",
+          label = container.insert(new Q.UI.Text({ x: 0, y: -120, family:"chalkduster,Permanent Marker,courier",align:"center",
           label: "LEVELS" ,size:40 ,opacity:1,color:"white"}));
           var x=[-205,-160,-115,-70,-25,20,65,110,155,200,-205,-160,-115,-70,-25,20,65,110,155,200];
           var y=[-28,-28,-28,-28,-28,-28,-28,-28,-28,-28,54,54,54,54,54,54,54,54,54,54];
@@ -517,9 +517,9 @@ window.addEventListener("load",function() {
             xPos = x[i];
             yPos = y[i];
             num = "" + (i+1);
-            buttons[i] = container.insert(new Q.UI.Button({ x: xPos, y: yPos, fill: "#CCCCCC",family:"chalkduster,eraser,courier",align:"left",
+            buttons[i] = container.insert(new Q.UI.Button({ x: xPos, y: yPos, fill: "#CCCCCC",family:"chalkduster,Permanent Marker,courier",align:"left",
             label: " ",size:28 ,opacity:0,name:i}));
-            labels[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos-15, family:"chalkduster,eraser,courier",align:"center",
+            labels[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos-15, family:"chalkduster,Permanent Marker,courier",align:"center",
             label: num ,size:28 ,opacity:1,color:"white"}));
             if (   Q.state.get("levelEggs[" + i + "]")>=1 ){
               var egg1 = container.insert(new Q.Sprite({asset:"hudegg.png",x:xPos-4, y: yPos+22}));
