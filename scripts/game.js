@@ -602,8 +602,13 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
-              Q.clear();
-              Q.setup();
+              //Q.clear();
+              Q.setup({
+    //width:504, //16:9
+    //height:284,
+    scaleToFit: true,
+    //maximize:true,
+  });
               //screen.orientation.lock("portrait-primary");
             }
             
