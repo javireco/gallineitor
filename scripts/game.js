@@ -3,10 +3,8 @@ window.addEventListener("load",function() {
   .include("Scenes, Sprites, 2D, Input, Touch, UI, TMX, Audio,Anim")
   .include("PlayerScript, HomeScript,CloudScript,EggScript,ExtrasScript,ZorroScript")
   .setup({
-    //width:504, //16:9
-    //height:284,
-    width:document.documentElement.clientWidth, //16:9
-    height:document.documentElement.clientHeight,
+    width:504, //16:9
+    height:284,
     scaleToFit: true,
     //maximize:true,
   })
@@ -605,12 +603,8 @@ console.log(Q.input.keypad);
                   docelem.msRequestFullscreen();
               }
               //Q.clear();
-              Q.setup({
-width:document.documentElement.clientWidth, //16:9
-    height:document.documentElement.clientHeight,
-    scaleToFit: true,
-    //maximize:true,
-  });
+              Q.setup({maximize:true,
+               });
               //screen.orientation.lock("portrait-primary");
             }
             
