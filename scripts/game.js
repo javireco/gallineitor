@@ -605,6 +605,7 @@ console.log(Q.input.keypad);
               screen.orientation.lock("portrait-primary");
             }
             
+            console.log(Q);
             
               Q.clearStages();
               Q.state.set("level",1);
