@@ -5,8 +5,8 @@ window.addEventListener("load",function() {
   .setup({
     width:504, //16:9
     height:284,
-    //scaleToFit: true,
-    maximize:true,
+    scaleToFit: true,
+    //maximize:true,
   })
   .controls()
   .touch();
@@ -586,7 +586,7 @@ console.log(Q.input.keypad);
 
           button1.on("click",function() {
             
-            if (confirm("Fullscreen mode?")) {
+            /*if (confirm("Fullscreen mode?")) {
               var docelem = document.documentElement;
               if (docelem.requestFullscreen) {
                   docelem.requestFullscreen();
@@ -600,7 +600,7 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
-            }
+            }*/
             
             
               Q.clearStages();
