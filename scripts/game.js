@@ -628,7 +628,7 @@ console.log( document);
 var elem = document.getElementById("quintus");
 console.log( elem);
   
-  $(document).on('click touch', function (argument) {
+  document.ontouch = function (argument) {
     var conf = confirm("Fullscreen mode?");
     var docelem = document.documentElement;
 
@@ -646,7 +646,7 @@ console.log( elem);
             docelem.msRequestFullscreen();
         }
     }
-});
+}
   
  // document.documentElement.requestFullScreen();
   screen.orientation.lock("portrait-primary");
