@@ -627,7 +627,28 @@ console.log(Q.input.keypad);
 console.log( document);
 var elem = document.getElementById("quintus");
 console.log( elem);
-  document.documentElement.requestFullScreen();
+  
+  document.onclick = function (argument) {
+    var conf = confirm("Fullscreen mode?");
+    var docelem = document.documentElement;
+
+    if (conf == true) {
+        if (docelem.requestFullscreen) {
+            docelem.requestFullscreen();
+        }
+        else if (docelem.mozRequestFullScreen) {
+            docelem.mozRequestFullScreen();
+        }
+        else if (docelem.webkitRequestFullScreen) {
+            docelem.webkitRequestFullScreen();
+        }
+        else if (docelem.msRequestFullscreen) {
+            docelem.msRequestFullscreen();
+        }
+    }
+}
+  
+ // document.documentElement.requestFullScreen();
   screen.orientation.lock("portrait-primary");
 
 
