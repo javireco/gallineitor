@@ -27,7 +27,7 @@ window.addEventListener("load",function() {
   Q.input.keypad.unit = Q.height - Q.height/2;
 
   Q.input.fullHeight=true;
-console.log(Q.input.keypad);
+//console.log(Q.input.keypad);
   Q.input.drawButtons= function() {
 /*
 
@@ -198,7 +198,8 @@ console.log(Q.input.keypad);
     Q.stageScene("hud", 3, Q("Player").first().p);
     Q.stageScene("buttons", 1, Q("Player").first().p);
     if (!Q.state.get("mute") && !Q.state.get("muteMusic") ){
-      Q.audio.stop('papageno.mp3');
+      //Q.audio.stop('papageno.mp3');
+      Q.audio.stop();
       Q.audio.play('papageno.mp3',{ loop: true });
       Q.state.set("papagenofast",false);
     }
@@ -246,7 +247,8 @@ console.log(Q.input.keypad);
         if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
 
             if (!Q.state.get("papagenofast")){
-              Q.audio.stop('papageno.mp3');
+              //Q.audio.stop('papageno.mp3');
+              Q.audio.stop();
               Q.audio.play('papagenofast.mp3',{ loop:true });
               Q.state.set("papagenofast",true);
             }
@@ -258,7 +260,8 @@ console.log(Q.input.keypad);
       }else{
         if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
           if ( Q.state.get("papagenofast") ){
-            Q.audio.stop('papagenofast.mp3');
+            //Q.audio.stop('papagenofast.mp3');
+            Q.audio.stop();
             Q.state.set("papagenofast",false);
             Q.audio.play('papageno.mp3',{ loop:true });
           }
@@ -323,7 +326,7 @@ console.log(Q.input.keypad);
                 //console.log("1");
                 Q.audio.stop();
                 Q.state.set("papagenofast",false);
-                Q.audio.stop("papagenofast.mp3");
+                //Q.audio.stop("papagenofast.mp3");
                 Q.state.set("mute",false);
                 Q.state.set("muteMusic",true);
                 muteImage = "muteMusic.png";
@@ -331,7 +334,7 @@ console.log(Q.input.keypad);
                 //console.log("2");
                 Q.audio.stop();
                 Q.state.set("papagenofast",false);
-                Q.audio.stop("papagenofast.mp3");
+                //Q.audio.stop("papagenofast.mp3");
                 Q.state.set("mute",true);
                 Q.state.set("muteMusic",true);
                 muteImage = "mute.png";
@@ -339,7 +342,7 @@ console.log(Q.input.keypad);
                 //console.log("3");
                 Q.state.set("mute",false);
                 Q.state.set("muteMusic",false);
-                Q.audio.stop("papagenofast.mp3");
+                //Q.audio.stop("papagenofast.mp3");
                 Q.state.set("papagenofast",false);
                 Q.audio.stop();
                 Q.audio.play('papageno.mp3',{ loop: true });
@@ -389,8 +392,9 @@ console.log(Q.input.keypad);
 
   //Escena de juego perdido
   Q.scene('endGame',function(stage) {
-    Q.audio.stop('papageno.mp3');
-    Q.audio.stop('papagenofast.mp3');
+    Q.audio.stop();
+    //Q.audio.stop('papageno.mp3');
+    //Q.audio.stop('papagenofast.mp3');
     //Q.state.set("papagenofast",false);
     var container = stage.insert(new Q.UI.Container({
       x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
@@ -460,7 +464,8 @@ console.log(Q.input.keypad);
           Q.state.set("pause",false);
           Q.clearStage(2);
           if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
-            Q.audio.stop('papageno.mp3');
+            //Q.audio.stop('papageno.mp3');
+            Q.audio.stop();
             Q.audio.play('papageno.mp3',{ loop: true });
           }
         });
@@ -502,7 +507,8 @@ console.log(Q.input.keypad);
               Q.state.set("pause",false);
               Q.clearStage(2);
               if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
-                Q.audio.stop('papageno.mp3');
+                //Q.audio.stop('papageno.mp3');
+                Q.audio.stop();
                 Q.audio.play('papageno.mp3',{ loop: true });
               }
             }
@@ -566,7 +572,8 @@ console.log(Q.input.keypad);
                 Q.state.set("pause",false);
                 Q.clearStage(2);
                 if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
-                  Q.audio.stop('papageno.mp3');
+                  //Q.audio.stop('papageno.mp3');
+                  Q.audio.stop();
                   Q.audio.play('papageno.mp3',{ loop: true });
                 }
               }
@@ -589,8 +596,8 @@ console.log(Q.input.keypad);
         var button2 = container.insert(new Q.UI.Button({ asset:"choselevel.png" ,x: -192, y: 98,scale:1.5}));
 
           button1.on("click",function() {
-            
-            if (confirm("Fullscreen mode?")) {
+//ES PARA FULLSCREEN PERO ME FUNCIONA LUEGO EL CLICK EN LOS BOTONES
+            /*if (confirm("Fullscreen mode?")) {
               var docelem = document.getElementById("quintus");
               //var docelem = document.documentElement;
               //var docelem = Q.el;
@@ -606,25 +613,25 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
-              
+
               console.log(docelem.width);
               console.log(docelem.height);
-              
-              Q.setup({
-                width:docelem.width, //16:9
-                height:docelem.height,
-                scaleToFit: true,
-              }).controls().touch();
-              //Q.el.height = document.documentElement.clientHeight; 
+
+              //docelem.setup({
+                //width:docelem.width, //16:9
+                //height:docelem.height,
+              //  scaleToFit: true,
+              //}).controls().touch();
+              //Q.el.height = document.documentElement.clientHeight;
               //Q.el.width =document.documentElement.clientWidth;
               //Q.setup({scaleToFit:true,
-                       
+
               // });
               //screen.orientation.lock("portrait-primary");
-            }
-            
+            }*/
+
             //console.log(Q);
-            
+
               Q.clearStages();
               Q.state.set("level",1);
               Q.stageScene('level');
@@ -669,7 +676,7 @@ console.log(Q.input.keypad);
 //console.log( document);
 //var elem = document.getElementById("quintus");
 //console.log( elem);
-  
+
  /* document.ontouchstart = function (argument) {
     //var conf = confirm("Fullscreen mode?");
     //var docelem = document.documentElement;
@@ -690,7 +697,7 @@ console.log(Q.input.keypad);
         }
     }
 }
-  
+
  // document.documentElement.requestFullScreen();
   screen.orientation.lock("portrait-primary");
 
