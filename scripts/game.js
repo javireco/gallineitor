@@ -603,6 +603,7 @@ console.log(Q.input.keypad);
                   docelem.msRequestFullscreen();
               }
               Q.clear();
+              Q.setup().controls().touch();
               //Q.el.height = document.documentElement.clientHeight; 
               //Q.el.width =document.documentElement.clientWidth;
               //Q.setup({scaleToFit:true,
