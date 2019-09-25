@@ -607,7 +607,7 @@ console.log(Q.input.keypad);
               //Q.el.width =document.documentElement.clientWidth;
               //Q.setup({scaleToFit:true,
                        
-               });
+              // });
               //screen.orientation.lock("portrait-primary");
             }
             
