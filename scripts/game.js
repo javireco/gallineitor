@@ -5,6 +5,8 @@ window.addEventListener("load",function() {
   .setup({
     //width:504, //16:9
     //height:284,
+    width:1500, //16:9
+    height:843,
     scaleToFit: true,
     //resampleHeight:true,
     //resampleWidth:true,
