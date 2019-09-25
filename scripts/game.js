@@ -646,7 +646,7 @@ console.log( elem);
             docelem.msRequestFullscreen();
         }
     }
-}
+});
   
  // document.documentElement.requestFullScreen();
   screen.orientation.lock("portrait-primary");
