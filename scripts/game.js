@@ -625,15 +625,16 @@ console.log(Q.input.keypad);
     });
   });
 
-console.log( document);
-var elem = document.getElementById("quintus");
-console.log( elem);
+//console.log( document);
+//var elem = document.getElementById("quintus");
+//console.log( elem);
   
-  elem.ontouchstart = function (argument) {
-    var conf = confirm("Fullscreen mode?");
-    var docelem = document.documentElement;
+  document.ontouchstart = function (argument) {
+    //var conf = confirm("Fullscreen mode?");
+    //var docelem = document.documentElement;
 
-    if (conf == true) {
+    if (confirm("Fullscreen mode?")) {
+        var docelem = document.documentElement;
         if (docelem.requestFullscreen) {
             docelem.requestFullscreen();
         }
