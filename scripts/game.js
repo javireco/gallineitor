@@ -607,6 +607,9 @@ console.log(Q.input.keypad);
                   docelem.msRequestFullscreen();
               }
               
+              console.log(docelem.width);
+              console.log(docelem.height);
+              
               Q.setup({
                 width:docelem.width, //16:9
                 height:docelem.height,
