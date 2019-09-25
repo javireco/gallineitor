@@ -6,6 +6,7 @@ window.addEventListener("load",function() {
     width:504, //16:9
     height:284,
     scaleToFit: true,
+    maximize:true,
   })
   .controls()
   .touch();
