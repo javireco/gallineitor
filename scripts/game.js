@@ -603,7 +603,7 @@ console.log(Q.input.keypad);
                   docelem.msRequestFullscreen();
               }
               //Q.clear();
-              Q.setup({maximize:true,
+              Q.setup({scaleToFit:true,
                });
               //screen.orientation.lock("portrait-primary");
             }
