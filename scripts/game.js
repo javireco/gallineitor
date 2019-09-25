@@ -602,10 +602,10 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
-              screen.orientation.lock("portrait-primary");
+              //screen.orientation.lock("portrait-primary");
             }
             
-            console.log(Q);
+            //console.log(Q);
             
               Q.clearStages();
               Q.state.set("level",1);
