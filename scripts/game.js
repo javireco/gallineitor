@@ -602,7 +602,7 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
-              Q.clear();
+              
               Q.setup().controls().touch();
               //Q.el.height = document.documentElement.clientHeight; 
               //Q.el.width =document.documentElement.clientWidth;
