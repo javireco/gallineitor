@@ -6,8 +6,8 @@ window.addEventListener("load",function() {
     width:504, //16:9
     height:284,
     scaleToFit: true,
-    resampleHeight:true,
-    resampleWidth:true,
+    //resampleHeight:true,
+    //resampleWidth:true,
     //maximize:true,
   })
   .controls()
@@ -21,8 +21,8 @@ window.addEventListener("load",function() {
   []
   ];
 
-  Q.input.keypad.size = 504;
-  Q.input.keypad.unit = 160;
+  Q.input.keypad.size = Q.width;
+  Q.input.keypad.unit = Q.height - 124;
 
   Q.input.fullHeight=true;
 console.log(Q.input.keypad);
