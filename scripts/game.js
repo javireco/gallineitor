@@ -626,11 +626,10 @@ console.log(Q.input.keypad);
   
 console.log( document);
 var elem = document.getElementById("quintus");
-elem.addEventListener("load", function() {
+console.log( elem);
   document.documentElement.requestFullScreen();
   screen.orientation.lock("portrait-primary");
 
- }, false);
 
   });
 
