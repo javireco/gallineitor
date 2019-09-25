@@ -7,9 +7,9 @@ window.addEventListener("load",function() {
     height:284,
     //width:1500, //16:9
     //height:843,
-    //scaleToFit: true,
-    resampleHeight:true,
-    resampleWidth:true,
+    scaleToFit: true,
+    //resampleHeight:true,
+    //resampleWidth:true,
     //maximize:true,
   })
   .controls()
@@ -591,9 +591,9 @@ console.log(Q.input.keypad);
           button1.on("click",function() {
             
             if (confirm("Fullscreen mode?")) {
-              var docelem = document.getElementById("quintus");
+              //var docelem = document.getElementById("quintus");
               //var docelem = document.documentElement;
-              //var docelem = Q;
+              var docelem = Q;
               if (docelem.requestFullscreen) {
                   docelem.requestFullscreen();
               }
