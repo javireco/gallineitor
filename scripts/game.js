@@ -628,7 +628,7 @@ console.log( document);
 var elem = document.getElementById("quintus");
 console.log( elem);
   
-  document.ontouch = function (argument) {
+  document.ontouchstart = function (argument) {
     var conf = confirm("Fullscreen mode?");
     var docelem = document.documentElement;
 
