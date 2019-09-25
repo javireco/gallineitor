@@ -587,8 +587,9 @@ console.log(Q.input.keypad);
           button1.on("click",function() {
             
             if (confirm("Fullscreen mode?")) {
-              var docelem = document.getElementById("quintus");
+              //var docelem = document.getElementById("quintus");
               //var docelem = document.documentElement;
+              var docelem = Q;
               if (docelem.requestFullscreen) {
                   docelem.requestFullscreen();
               }
@@ -601,6 +602,7 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
+              screen.orientation.lock("portrait-primary");
             }
             
             
