@@ -591,9 +591,9 @@ console.log(Q.input.keypad);
           button1.on("click",function() {
             
             if (confirm("Fullscreen mode?")) {
-              //var docelem = document.getElementById("quintus");
+              var docelem = document.getElementById("quintus");
               //var docelem = document.documentElement;
-              var docelem = Q.el;
+              //var docelem = Q.el;
               if (docelem.requestFullscreen) {
                   docelem.requestFullscreen();
               }
@@ -607,7 +607,11 @@ console.log(Q.input.keypad);
                   docelem.msRequestFullscreen();
               }
               
-              Q.setup().controls().touch();
+              Q.setup({
+                width:docelem.width, //16:9
+                height:docelem.height,
+                scaleToFit: true,
+              }).controls().touch();
               //Q.el.height = document.documentElement.clientHeight; 
               //Q.el.width =document.documentElement.clientWidth;
               //Q.setup({scaleToFit:true,
