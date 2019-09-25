@@ -623,7 +623,8 @@ console.log(Q.input.keypad);
       Q.stageScene("portada");
       //Q.stageScene("level");
     });
-  
+  });
+
 console.log( document);
 var elem = document.getElementById("quintus");
 console.log( elem);
@@ -650,9 +651,6 @@ console.log( elem);
   
  // document.documentElement.requestFullScreen();
   screen.orientation.lock("portrait-primary");
-
-
-  });
 
 
   //con esto puedo tocar en cualquier lado de la pantalla
