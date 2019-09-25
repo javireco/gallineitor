@@ -604,8 +604,8 @@ console.log(Q.input.keypad);
               }
               //Q.clear();
               Q.setup({
-    //width:504, //16:9
-    //height:284,
+width:document.fullscreenElement.width, //16:9
+    height:document.fullscreenElement.height,
     scaleToFit: true,
     //maximize:true,
   });
