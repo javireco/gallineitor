@@ -586,8 +586,9 @@ console.log(Q.input.keypad);
 
           button1.on("click",function() {
             
-            /*if (confirm("Fullscreen mode?")) {
-              var docelem = document.documentElement;
+            if (confirm("Fullscreen mode?")) {
+              var docelem = document.getElementById("quintus");
+              //var docelem = document.documentElement;
               if (docelem.requestFullscreen) {
                   docelem.requestFullscreen();
               }
@@ -600,7 +601,7 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
-            }*/
+            }
             
             
               Q.clearStages();
