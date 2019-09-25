@@ -602,6 +602,7 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
+              Q.setup();
               //screen.orientation.lock("portrait-primary");
             }
             
