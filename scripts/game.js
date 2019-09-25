@@ -623,18 +623,15 @@ console.log(Q.input.keypad);
       Q.stageScene("portada");
       //Q.stageScene("level");
     });
-/*
+  
 console.log( document);
 var elem = document.getElementById("quintus");
-if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { // Firefox
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { //  Chrome, Safari and Opera
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { //  IE/Edge
-    elem.msRequestFullscreen();
-  }*/
+elem.addEventListener("load", function() {
+  document.documentElement.requestFullScreen();
+  screen.orientation.lock("portrait-primary");
+
+ }, false);
+
   });
 
 
