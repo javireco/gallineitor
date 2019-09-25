@@ -14,30 +14,17 @@ window.addEventListener("load",function() {
   Q.input.keypad.controls =  [ ["fire","1"],
   [ ],
   [ ],[ ],
-  ["fire","2"]
+  //["fire","2"]
+  []
   ];
 
+  Q.input.keypad.size = 504;
+  Q.input.keypad.unit = 160;
+
+  Q.input.fullHeight=true;
+console.log(Q.input.keypad);
   Q.input.drawButtons= function() {
-    var keypad = Q.input.keypad,
-    ctx = Q.ctx;
-    ctx.save();
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-
-    if (Q.state.get("level")>0){
-      for(var i=0;i<keypad.controls.length;i++) {
-        var control = keypad.controls[i];
-
-        if(control[0]) {
-          ctx.font = "bold " + (keypad.size/2) + "px arial";
-          var x = keypad.left + i * keypad.unit + keypad.gutter + 41,
-          y = keypad.bottom - keypad.unit + 41,
-          key = Q.inputs[control[0]];
-
-          /*ctx.fillStyle = keypad.color || "red";
-          ctx.globalAlpha = key ? 0.7 : 0.5;
-          console.log(control);
-          ctx.fillRect(x,y,keypad.size/2,keypad.size/2);*/
+/*
 
           if ( control[1]=="1" ){
             ctx.beginPath();
@@ -69,16 +56,12 @@ window.addEventListener("load",function() {
             ctx.fill();
             //ctx.restore();
           }
-          /*ctx.fillStyle = keypad.text || "#DD0000";
-          ctx.fillText(control[1],
-            x+keypad.size/2,
-            y+keypad.size/2);
-*/
+
           }
         }
       }
     ctx.restore();
-  };
+  */};
 
   //carga las animaciones de la gallina
   Q.animations('gallina', {
