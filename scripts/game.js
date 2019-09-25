@@ -602,10 +602,10 @@ console.log(Q.input.keypad);
               else if (docelem.msRequestFullscreen) {
                   docelem.msRequestFullscreen();
               }
-              //Q.clear();
-              Q.el.height = document.documentElement.clientHeight; 
-              Q.el.width =document.documentElement.clientWidth;
-              Q.setup({scaleToFit:true,
+              Q.clear();
+              //Q.el.height = document.documentElement.clientHeight; 
+              //Q.el.width =document.documentElement.clientWidth;
+              //Q.setup({scaleToFit:true,
                        
                });
               //screen.orientation.lock("portrait-primary");
