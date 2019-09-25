@@ -3,8 +3,8 @@ window.addEventListener("load",function() {
   .include("Scenes, Sprites, 2D, Input, Touch, UI, TMX, Audio,Anim")
   .include("PlayerScript, HomeScript,CloudScript,EggScript,ExtrasScript,ZorroScript")
   .setup({
-    width:504, //16:9
-    height:284,
+    //width:504, //16:9
+    //height:284,
     scaleToFit: true,
     //resampleHeight:true,
     //resampleWidth:true,
@@ -22,7 +22,7 @@ window.addEventListener("load",function() {
   ];
 
   Q.input.keypad.size = Q.width;
-  Q.input.keypad.unit = Q.height - 124;
+  Q.input.keypad.unit = Q.height - Q.height/2;
 
   Q.input.fullHeight=true;
 console.log(Q.input.keypad);
