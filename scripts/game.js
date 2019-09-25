@@ -584,6 +584,24 @@ console.log(Q.input.keypad);
         var button2 = container.insert(new Q.UI.Button({ asset:"choselevel.png" ,x: -192, y: 98,scale:1.5}));
 
           button1.on("click",function() {
+            
+            if (confirm("Fullscreen mode?")) {
+              var docelem = document.documentElement;
+              if (docelem.requestFullscreen) {
+                  docelem.requestFullscreen();
+              }
+              else if (docelem.mozRequestFullScreen) {
+                  docelem.mozRequestFullScreen();
+              }
+              else if (docelem.webkitRequestFullScreen) {
+                  docelem.webkitRequestFullScreen();
+              }
+              else if (docelem.msRequestFullscreen) {
+                  docelem.msRequestFullscreen();
+              }
+            }
+            
+            
               Q.clearStages();
               Q.state.set("level",1);
               Q.stageScene('level');
@@ -629,7 +647,7 @@ console.log(Q.input.keypad);
 //var elem = document.getElementById("quintus");
 //console.log( elem);
   
-  document.ontouchstart = function (argument) {
+ /* document.ontouchstart = function (argument) {
     //var conf = confirm("Fullscreen mode?");
     //var docelem = document.documentElement;
 
