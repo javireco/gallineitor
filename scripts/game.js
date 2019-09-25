@@ -3,13 +3,13 @@ window.addEventListener("load",function() {
   .include("Scenes, Sprites, 2D, Input, Touch, UI, TMX, Audio,Anim")
   .include("PlayerScript, HomeScript,CloudScript,EggScript,ExtrasScript,ZorroScript")
   .setup({
-    //width:504, //16:9
-    //height:284,
-    width:1500, //16:9
-    height:843,
-    scaleToFit: true,
-    //resampleHeight:true,
-    //resampleWidth:true,
+    width:504, //16:9
+    height:284,
+    //width:1500, //16:9
+    //height:843,
+    //scaleToFit: true,
+    resampleHeight:true,
+    resampleWidth:true,
     //maximize:true,
   })
   .controls()
