@@ -673,8 +673,58 @@ window.addEventListener("load",function() {
       Q.compileSheets("changeDirection.png","changeDirection.json");
       Q.stageScene("portada");
       //Q.stageScene("level");
-    });
+
+      document.addEventListener('visibilitychange', function(){
+          if (document.hidden) {
+              // Document is hidden
+
+              // This re-initialize the audio element
+              // to release the audio focus
+              if (!Q.state.get("pause")){
+                Q.audio.stop();
+              }
+          }
+          else {
+            // Document is focused
+            if (!Q.state.get("pause")){
+              if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
+                //Q.audio.stop('papageno.mp3');
+                Q.audio.stop();
+                Q.audio.play('papageno.mp3',{ loop: true });
+              }
+            }
+
+          }
+        },false);
+
+        document.addEventListener('pause', function() {
+          console.log('pause');
+          if (!Q.state.get("pause")){
+            Q.audio.stop();
+          }
+          // Tell your audio library to pause here
+        },false);
+
+
+        document.addEventListener('resume', function() {
+          console.log('vuelve');
+          // Tell your audio library to start playing again
+          if (!Q.state.get("pause")){
+            if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
+              //Q.audio.stop('papageno.mp3');
+              Q.audio.stop();
+              Q.audio.play('papageno.mp3',{ loop: true });
+            }
+          }
+        },false);
+
+//document.addEventListener("backbutton", go_back, false);
+
+      });
+
+
   });
+
 
 //console.log( document);
 //var elem = document.getElementById("quintus");
