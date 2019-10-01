@@ -34,7 +34,7 @@ Quintus.EggScript = function(Q) {
 						collision.obj.addPoints();
 						//play sound
 						if (!Q.state.get("mute")){
-							Q.audio.play('egg.mp3',{ debounce: 0.5 });
+							Q.audio.play('egg.mp3',{ debounce: 50 });
 						}
 					}
 					//actualiza marcador

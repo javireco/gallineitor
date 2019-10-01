@@ -57,9 +57,9 @@ Quintus.ExtrasScript = function(Q) {
 	        //play sound
 					if (!Q.state.get("mute")){
 						if ( this.p.status == "muelle" ){
-	        		Q.audio.play('supersalto.mp3',{ loop: false },2);
+	        		Q.audio.play('supersalto.mp3',{ debounce: 500 });
 						}else if ( this.p.status == "changeDirection" ){
-							Q.audio.play('changeDirection.mp3',{ loop: false },2);
+							Q.audio.play('changeDirection.mp3',{ debounce: 500 });
 						}
 					}
 				}
