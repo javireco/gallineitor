@@ -164,7 +164,7 @@ window.addEventListener("load",function() {
     Q.state.set("levelEggs[" + i + "]",0);
   }
   Q.enableSound();
-  Q.setImageSmoothing(false);
+  Q.setImageSmoothing(true);
 
   //Escena de cualquier nivel nivel
   Q.scene("level",function(stage) {
