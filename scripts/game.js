@@ -150,7 +150,7 @@ window.addEventListener("load",function() {
   Q.state.set("timeLevel[9]",80);
   Q.state.set("timeLevel[10]",80);
   Q.state.set("timeLevel[11]",80);
-  Q.state.set("timeLevel[12]",80);
+  Q.state.set("timeLevel[12]",60);
   Q.state.set("timeLevel[13]",80);
   Q.state.set("timeLevel[14]",80);
   Q.state.set("timeLevel[15]",80);
