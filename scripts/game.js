@@ -403,19 +403,25 @@ window.addEventListener("load",function() {
       //console.log(Q.state.get("levelEggs[" +  (Q.state.get("level") -1) + "]"));
     if (stage.options.label=="good"){
       var image = container.insert(new Q.Sprite({asset:"nextlevelgood.png",x:0, y: 0}));
-      Q.audio.play("good.mp3");
+      if (!Q.state.get("mute") ){
+        Q.audio.play("good.mp3");
+      }
       if ( Q.state.get("levelEggs[" +  (Q.state.get("level") -1) + "]")<1 ){
         Q.state.set("levelEggs[" +  (Q.state.get("level") -1) + "]",1);
       }
     }else if (stage.options.label=="super"){
       var image = container.insert(new Q.Sprite({asset:"nextlevelsuper.png",x:0, y: 0}));
-      Q.audio.play("super.mp3");
+      if (!Q.state.get("mute") ){
+        Q.audio.play("super.mp3");
+      }
       if ( Q.state.get("levelEggs[" +  (Q.state.get("level") -1) + "]")<2 ){
         Q.state.set("levelEggs[" +   (Q.state.get("level") -1) + "]",2);
       }
     }else{
       var image = container.insert(new Q.Sprite({asset:"nextlevellose.png",x:0, y: 0}));
-      Q.audio.play("ohh.mp3");
+      if (!Q.state.get("mute") ){
+        Q.audio.play("ohh.mp3");
+      }
     }
 
     var button1 = container.insert(new Q.UI.Button({ asset:"restart.png" ,x: -90, y: -86}));
