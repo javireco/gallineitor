@@ -9,7 +9,9 @@ Quintus.ZorroScript = function(Q) {
 					if (collision.obj.p.status=="fast"||collision.obj.p.status=="frozen"){
 						  this.destroy();
 						  collision.obj.p.vy = -100;
+						  if (!Q.state.get("mute") ){
 							Q.audio.play("fox.mp3");
+						  }
 					}else if(!collision.obj.p.damage){
 
 						if (Q.state.get("score")>0){
@@ -34,7 +36,9 @@ Quintus.ZorroScript = function(Q) {
 					if (collision.obj.p.status=="fast"||collision.obj.p.status=="frozen") {
 						  this.destroy();
 						  collision.obj.p.vy = -100;
+						  if (!Q.state.get("mute") ){
 							Q.audio.play("fox.mp3");
+						  }
 					}else if(!collision.obj.p.damage){
 
 						if (Q.state.get("score")>0){
@@ -59,7 +63,9 @@ Quintus.ZorroScript = function(Q) {
 				if(collision.obj.isA("Player")){
 				  this.destroy();
 				  collision.obj.p.vy = -100;
+				  if (!Q.state.get("mute") ){
 					Q.audio.play("fox.mp3");
+				  }
 				}
       });
 	  }
