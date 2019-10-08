@@ -411,11 +411,11 @@ window.addEventListener("load",function() {
       if ( Q.state.get("levelEggs[" +  (Q.state.get("level") -1) + "]")<1 ){
         Q.state.set("levelEggs[" +  (Q.state.get("level") -1) + "]",1);
       }
-      if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time"))*10 ){
-        Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time"))*10);
+      if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time")*10) ){
+        Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time")*10));
       }
       labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:"chalkduster,Mansalva,courier",align:"left",
-      label: "" + Math.round(Q.state.get("time"))*10 ,size:20 ,opacity:1,color:"white"}));
+      label: "" + Math.round(Q.state.get("time")*10) ,size:20 ,opacity:1,color:"white"}));
     }else if (stage.options.label=="super"){
       var image = container.insert(new Q.Sprite({asset:"nextlevelsuper.png",x:0, y: 0}));
       if (!Q.state.get("mute") ){
@@ -424,11 +424,11 @@ window.addEventListener("load",function() {
       if ( Q.state.get("levelEggs[" +  (Q.state.get("level") -1) + "]")<2 ){
         Q.state.set("levelEggs[" +   (Q.state.get("level") -1) + "]",2);
       }
-      if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time"))*100 ){
-        Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time"))*100);
+      if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time")*100) ){
+        Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time")*100));
       }
       labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:"chalkduster,Mansalva,courier",align:"left",
-      label: "" + Math.round(Q.state.get("time"))*100 ,size:20 ,opacity:1,color:"white"}));
+      label: "" + Math.round(Q.state.get("time")*100) ,size:20 ,opacity:1,color:"white"}));
     }else{
       var image = container.insert(new Q.Sprite({asset:"nextlevellose.png",x:0, y: 0}));
       if (!Q.state.get("mute") ){
