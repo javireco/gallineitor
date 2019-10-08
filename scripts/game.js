@@ -159,9 +159,11 @@ window.addEventListener("load",function() {
   Q.state.set("timeLevel[18]",80);
   Q.state.set("timeLevel[19]",80);
   Q.state.set("levelEggs",[]);
+  Q.state.set("levelTime",[]);
   Q.state.set("papagenofast",false);
   for (i=0 ; i<20 ; i++){
     Q.state.set("levelEggs[" + i + "]",0);
+    Q.state.set("levelTime[" + i + "]",0);
   }
   Q.enableSound();
   Q.setImageSmoothing(false);
@@ -409,6 +411,11 @@ window.addEventListener("load",function() {
       if ( Q.state.get("levelEggs[" +  (Q.state.get("level") -1) + "]")<1 ){
         Q.state.set("levelEggs[" +  (Q.state.get("level") -1) + "]",1);
       }
+      if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time"))*10 ){
+        Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time"))*10);
+      }
+      labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:"chalkduster,Mansalva,courier",align:"left",
+      label: "" + Math.round(Q.state.get("time"))*10 ,size:20 ,opacity:1,color:"white"}));
     }else if (stage.options.label=="super"){
       var image = container.insert(new Q.Sprite({asset:"nextlevelsuper.png",x:0, y: 0}));
       if (!Q.state.get("mute") ){
@@ -417,6 +424,11 @@ window.addEventListener("load",function() {
       if ( Q.state.get("levelEggs[" +  (Q.state.get("level") -1) + "]")<2 ){
         Q.state.set("levelEggs[" +   (Q.state.get("level") -1) + "]",2);
       }
+      if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time"))*100 ){
+        Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time"))*100);
+      }
+      labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:"chalkduster,Mansalva,courier",align:"left",
+      label: "" + Math.round(Q.state.get("time"))*100 ,size:20 ,opacity:1,color:"white"}));
     }else{
       var image = container.insert(new Q.Sprite({asset:"nextlevellose.png",x:0, y: 0}));
       if (!Q.state.get("mute") ){
@@ -526,13 +538,16 @@ window.addEventListener("load",function() {
           label = container.insert(new Q.UI.Text({ x: 0, y: -120, family:"chalkduster,Mansalva,courier",align:"center",
           label: "LEVELS" ,size:40 ,opacity:1,color:"white"}));
           var x=[-205,-160,-115,-70,-25,20,65,110,155,200,-205,-160,-115,-70,-25,20,65,110,155,200];
-          var y=[-28,-28,-28,-28,-28,-28,-28,-28,-28,-28,54,54,54,54,54,54,54,54,54,54];
+          var y=[-32,-32,-32,-32,-32,-32,-32,-32,-32,-32,50,50,50,50,50,50,50,50,50,50];
           var buttons=[];
           var labels=[];
+          var labelsScore=[];
+          var totalScore=0;
           for (i = 0 ; i<20 ; i++){
             xPos = x[i];
             yPos = y[i];
             num = "" + (i+1);
+            score = Math.round( Q.state.get("levelTime[" + i + "]") );
             buttons[i] = container.insert(new Q.UI.Button({ x: xPos, y: yPos, fill: "#CCCCCC",family:"chalkduster,Mansalva,courier",align:"left",
             label: " ",size:28 ,opacity:0,name:i}));
             labels[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos-15, family:"chalkduster,Mansalva,courier",align:"center",
@@ -542,6 +557,11 @@ window.addEventListener("load",function() {
             }
             if (   Q.state.get("levelEggs[" + i + "]")==2 ){
               var egg2 = container.insert(new Q.Sprite({asset:"hudegggolden.png",x:xPos+4, y: yPos+22}));
+            }
+            if (score>0){
+              labelsScore[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos+36, family:"chalkduster,Mansalva,courier",align:"center",
+              label: "" + score ,size:12 ,opacity:1,color:"white"}));
+              totalScore += score;
             }
             buttons[i].on("click",function(){
               //console.log(this);
@@ -553,6 +573,8 @@ window.addEventListener("load",function() {
 
 
           }
+          label = container.insert(new Q.UI.Text({ x: 0, y: 100, family:"chalkduster,Mansalva,courier",align:"center",
+          label: "SCORE " + totalScore ,size:32 ,opacity:1,color:"white"}));
         });
 
 
@@ -724,16 +746,20 @@ window.addEventListener("load",function() {
       //Q.stageScene("level");
 
       document.addEventListener('visibilitychange', function(){
+
           if (document.hidden) {
               // Document is hidden
 
               // This re-initialize the audio element
               // to release the audio focus
+              console.log('visibilitychange hidden');
               if (!Q.state.get("pause")){
                 Q.audio.stop();
               }
           }
-          else {
+          else if ( Q.stage(1)!=null ){
+            console.log('visibilitychange show');
+            console.log(Q);
             // Document is focused
             if (!Q.state.get("pause")){
               if (!Q.state.get("mute")&&!Q.state.get("muteMusic")){
