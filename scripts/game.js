@@ -138,9 +138,9 @@ window.addEventListener("load",function() {
   Q.state.set("maxScoreGolden",0);
   Q.state.set("time",100);
   Q.state.set("previousTime",-1);
-  Q.state.set("timeLevel[0]",60);
+  Q.state.set("timeLevel[0]",80);
   Q.state.set("timeLevel[1]",80);
-  Q.state.set("timeLevel[2]",80);
+  Q.state.set("timeLevel[2]",100);
   Q.state.set("timeLevel[3]",60);
   Q.state.set("timeLevel[4]",80);
   Q.state.set("timeLevel[5]",100);
@@ -153,7 +153,7 @@ window.addEventListener("load",function() {
   Q.state.set("timeLevel[12]",60);
   Q.state.set("timeLevel[13]",80);
   Q.state.set("timeLevel[14]",80);
-  Q.state.set("timeLevel[15]",80);
+  Q.state.set("timeLevel[15]",70);
   Q.state.set("timeLevel[16]",80);
   Q.state.set("timeLevel[17]",80);
   Q.state.set("timeLevel[18]",80);
@@ -574,7 +574,7 @@ window.addEventListener("load",function() {
 
           }
           label = container.insert(new Q.UI.Text({ x: 0, y: 100, family:"chalkduster,Mansalva,courier",align:"center",
-          label: "SCORE " + totalScore ,size:32 ,opacity:1,color:"white"}));
+          label: "SCORE: " + totalScore ,size:32 ,opacity:1,color:"white"}));
         });
 
 
