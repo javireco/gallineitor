@@ -2141,9 +2141,9 @@
  </objectgroup>
  <objectgroup id="90" name="player and eggs">
   <object id="1529" gid="91" x="140" y="84" width="28" height="28"/>
-  <object id="1566" gid="89" x="119" y="252" width="28" height="28"/>
+  <object id="1566" gid="89" x="112" y="252" width="28" height="28"/>
   <object id="1567" gid="89" x="364" y="252" width="28" height="28"/>
-  <object id="1569" gid="89" x="119" y="420" width="28" height="28"/>
+  <object id="1569" gid="89" x="112" y="420" width="28" height="28"/>
   <object id="1570" gid="89" x="364" y="420" width="28" height="28"/>
   <object id="1571" gid="93" x="140" y="168" width="28" height="28"/>
   <object id="1572" gid="93" x="112" y="168" width="28" height="28"/>

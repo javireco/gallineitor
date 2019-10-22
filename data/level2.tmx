@@ -2048,9 +2048,8 @@
   <object id="1409" gid="91" x="140" y="1344" width="28" height="28"/>
  </objectgroup>
  <objectgroup id="94" name="clouds">
-  <object id="1360" gid="3" x="168" y="1400" width="56" height="28"/>
-  <object id="1361" gid="3" x="224" y="1428" width="56" height="28"/>
-  <object id="1362" gid="4" x="308" y="1400" width="56" height="28"/>
+  <object id="1361" gid="3" x="196" y="1428" width="56" height="28"/>
+  <object id="1362" gid="4" x="280" y="1393" width="56" height="28"/>
   <object id="1363" gid="3" x="336" y="1344" width="56" height="28"/>
   <object id="1364" gid="4" x="252" y="1288" width="56" height="28"/>
   <object id="1365" gid="4" x="168" y="1232" width="56" height="28"/>
@@ -2066,7 +2065,7 @@
   <object id="1377" gid="3" x="252" y="728" width="56" height="28"/>
   <object id="1378" gid="4" x="168" y="672" width="56" height="28"/>
   <object id="1379" gid="3" x="140" y="588" width="56" height="28"/>
-  <object id="1380" gid="3" x="224" y="532" width="56" height="28"/>
+  <object id="1380" gid="3" x="238" y="532" width="56" height="28"/>
   <object id="1381" gid="4" x="336" y="476" width="56" height="28"/>
   <object id="1382" gid="3" x="252" y="420" width="56" height="28"/>
   <object id="1383" gid="3" x="140" y="364" width="56" height="28"/>
