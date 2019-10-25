@@ -222,7 +222,7 @@ window.addEventListener("load",function() {
           labelColor = "white";
         }
       }
-      var label = container.insert(new Q.UI.Text({x:40, y: 52,size:18,family:" Mansalva,courier",align:"left",outlineWidth:0,opacity:1,
+      var label = container.insert(new Q.UI.Text({x:40, y: 49,size:18,family:" Mansalva,courier",align:"left",outlineWidth:0,opacity:1,
       label: "" + (Q.state.get("maxScore") - Q.state.get("score")) , color: labelColor, outline: "white" }));
     }else{
       var tickegg = container.insert(new Q.Sprite({asset:"tickegg.png",x:48, y: 53}));
