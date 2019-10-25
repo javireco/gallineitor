@@ -222,20 +222,20 @@ window.addEventListener("load",function() {
           labelColor = "white";
         }
       }
-      var label = container.insert(new Q.UI.Text({x:40, y: 52,size:17,family:"chalkduster,Mansalva,courier",align:"left",outlineWidth:0,opacity:1,
+      var label = container.insert(new Q.UI.Text({x:40, y: 52,size:18,family:" Mansalva,courier",align:"left",outlineWidth:0,opacity:1,
       label: "" + (Q.state.get("maxScore") - Q.state.get("score")) , color: labelColor, outline: "white" }));
     }else{
       var tickegg = container.insert(new Q.Sprite({asset:"tickegg.png",x:48, y: 53}));
     }
     if ( (Q.state.get("maxScoreGolden") - Q.state.get("scoreGolden"))>0 ){
-      var label = container.insert(new Q.UI.Text({x:40, y: 77,size:17,family:"chalkduster,Mansalva,courier",align:"left",
+      var label = container.insert(new Q.UI.Text({x:40, y: 77,size:18,family:" Mansalva,courier",align:"left",
       label: "" + (Q.state.get("maxScoreGolden") - Q.state.get("scoreGolden")) , color: "white",outlineWidth:0,opacity:1 }));
     }else{
       var tickegg = container.insert(new Q.Sprite({asset:"tickegg.png",x:48, y: 82}));
     }
-    var label = container.insert(new Q.UI.Text({x:14, y: 150,size:11,family:"chalkduster,Mansalva,courier",align:"left",
+    var label = container.insert(new Q.UI.Text({x:16, y: 150,size:11,family:" Mansalva,courier",align:"left",
     label: "LEVEL " + (Q.state.get("level") ) , color: "white",outlineWidth:0,opacity:1 }));
-    //var label = container.insert(new Q.UI.Text({x:20, y: 146,size:17,family:"chalkduster,courier",align:"left",
+    //var label = container.insert(new Q.UI.Text({x:20, y: 146,size:17,family:" courier",align:"left",
     //label: "LEVEL " + (Q.state.get("level") ) , color: "white",outlineWidth:0,opacity:1 }));
 
 
@@ -269,7 +269,7 @@ window.addEventListener("load",function() {
           }
         }
       }
-      var label = container.insert(new Q.UI.Text({x:40, y: 108,size:17,family:"chalkduster,Mansalva,courier",align:"left",outlineWidth:0,opacity:1,
+      var label = container.insert(new Q.UI.Text({x:40, y: 108,size:18,family:" Mansalva,courier",align:"left",outlineWidth:0,opacity:1,
       label: "" + Math.round(Q.state.get("time")) , color: colorTime, outline: colorTime }));
       //console.log(stage.options.win);
       if (stage.options.timeForStatus>0 && stage.options.status!="normal" && !stage.options.win && !Q.state.get("pause")){
@@ -386,7 +386,7 @@ window.addEventListener("load",function() {
             }
           });
 
-          var label = container2.insert(new Q.UI.Text({x:30, y: 150,size:9,family:"chalkduster,Mansalva,courier",align:"left",
+          var label = container2.insert(new Q.UI.Text({x:31, y: 151,size:9,family:" Mansalva,courier",align:"left",
           label: "GALLINATOR" , color: "white",outlineWidth:0,opacity:1 }));
     //console.log(container);
     //container.fit(400);
@@ -414,7 +414,7 @@ window.addEventListener("load",function() {
       if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time")*10) ){
         Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time")*10));
       }
-      labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:"chalkduster,Mansalva,courier",align:"left",
+      labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:" Mansalva,courier",align:"left",
       label: "" + Math.round(Q.state.get("time")*10) ,size:20 ,opacity:1,color:"white"}));
     }else if (stage.options.label=="super"){
       var image = container.insert(new Q.Sprite({asset:"nextlevelsuper.png",x:0, y: 0}));
@@ -427,7 +427,7 @@ window.addEventListener("load",function() {
       if ( Q.state.get("levelTime[" +  (Q.state.get("level") -1) + "]")<Math.round(Q.state.get("time")*100) ){
         Q.state.set("levelTime[" +  (Q.state.get("level") -1) + "]",Math.round(Q.state.get("time")*100));
       }
-      labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:"chalkduster,Mansalva,courier",align:"left",
+      labelsScore = container.insert(new Q.UI.Text({ x: 28, y: -70, family:" Mansalva,courier",align:"left",
       label: "" + Math.round(Q.state.get("time")*100) ,size:20 ,opacity:1,color:"white"}));
     }else{
       var image = container.insert(new Q.Sprite({asset:"nextlevellose.png",x:0, y: 0}));
@@ -535,7 +535,7 @@ window.addEventListener("load",function() {
 
 
 
-          label = container.insert(new Q.UI.Text({ x: 0, y: -120, family:"chalkduster,Mansalva,courier",align:"center",
+          label = container.insert(new Q.UI.Text({ x: 0, y: -120, family:" Mansalva,courier",align:"center",
           label: "LEVELS" ,size:40 ,opacity:1,color:"white"}));
           var x=[-205,-160,-115,-70,-25,20,65,110,155,200,-205,-160,-115,-70,-25,20,65,110,155,200];
           var y=[-32,-32,-32,-32,-32,-32,-32,-32,-32,-32,50,50,50,50,50,50,50,50,50,50];
@@ -548,9 +548,9 @@ window.addEventListener("load",function() {
             yPos = y[i];
             num = "" + (i+1);
             score = Math.round( Q.state.get("levelTime[" + i + "]") );
-            buttons[i] = container.insert(new Q.UI.Button({ x: xPos, y: yPos, fill: "#CCCCCC",family:"chalkduster,Mansalva,courier",align:"left",
+            buttons[i] = container.insert(new Q.UI.Button({ x: xPos, y: yPos, fill: "#CCCCCC",family:" Mansalva,courier",align:"left",
             label: " ",size:28 ,opacity:0,name:i}));
-            labels[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos-15, family:"chalkduster,Mansalva,courier",align:"center",
+            labels[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos-15, family:" Mansalva,courier",align:"center",
             label: num ,size:28 ,opacity:1,color:"white"}));
             if (   Q.state.get("levelEggs[" + i + "]")>=1 ){
               var egg1 = container.insert(new Q.Sprite({asset:"hudegg.png",x:xPos-4, y: yPos+22}));
@@ -559,7 +559,7 @@ window.addEventListener("load",function() {
               var egg2 = container.insert(new Q.Sprite({asset:"hudegggolden.png",x:xPos+4, y: yPos+22}));
             }
             if (score>0){
-              labelsScore[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos+36, family:"chalkduster,Mansalva,courier",align:"center",
+              labelsScore[i] = container.insert(new Q.UI.Text({ x: xPos, y: yPos+36, family:" Mansalva,courier",align:"center",
               label: "" + score ,size:12 ,opacity:1,color:"white"}));
               totalScore += score;
             }
@@ -573,7 +573,7 @@ window.addEventListener("load",function() {
 
 
           }
-          label = container.insert(new Q.UI.Text({ x: 0, y: 100, family:"chalkduster,Mansalva,courier",align:"center",
+          label = container.insert(new Q.UI.Text({ x: 0, y: 100, family:" Mansalva,courier",align:"center",
           label: "SCORE: " + totalScore ,size:32 ,opacity:1,color:"white"}));
         });
 
@@ -594,10 +594,10 @@ window.addEventListener("load",function() {
           //var buttonPause = container.insert(new Q.UI.Button({ asset:"gallinafrozenpause.png",x: 2, y: 2, family:"courier",align:"center",scale:5}));
           var buttonClose = container.insert(new Q.UI.Button({ asset:"close.png" ,x: 228, y: -79}));
 
-          var buttonCredits = container.insert(new Q.UI.Button({ x: 210, y: 120, fill: "#CCCCCC",family:"chalkduster,Mansalva,courier",align:"left",
+          var buttonCredits = container.insert(new Q.UI.Button({ x: 210, y: 120, fill: "#CCCCCC",family:" Mansalva,courier",align:"left",
           label: "           ",size:28 ,opacity:0,name:i}));
 
-          var labelCredits = container.insert(new Q.UI.Text({ x: 210, y: 120, family:"chalkduster,Mansalva,courier",align:"center",
+          var labelCredits = container.insert(new Q.UI.Text({ x: 210, y: 120, family:" Mansalva,courier",align:"center",
           label: "CREDITS" ,size:14 ,opacity:1,color:"orange"}));
 
           //var label = container.insert(new Q.UI.Text({x:0, y: buttonPause.p.h*1.5  ,family:"courier",align:"center",label: "paused" }));
