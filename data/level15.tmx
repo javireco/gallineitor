@@ -2152,7 +2152,7 @@
   <object id="1566" gid="89" x="231" y="714" width="28" height="28"/>
   <object id="1567" gid="89" x="273" y="679" width="28" height="28"/>
   <object id="1568" gid="89" x="273" y="959" width="28" height="28"/>
-  <object id="1569" gid="89" x="140" y="1246" width="28" height="28"/>
+  <object id="1569" gid="89" x="147" y="1260" width="28" height="28"/>
   <object id="1570" gid="22" x="203" y="672" width="28" height="28"/>
   <object id="1572" gid="22" x="140" y="616" width="28" height="28"/>
   <object id="1573" gid="22" x="224" y="560" width="28" height="28"/>
@@ -2167,12 +2167,12 @@
   <object id="1590" gid="89" x="322" y="413" width="28" height="28"/>
   <object id="1591" gid="90" x="112" y="1456" width="28" height="28"/>
   <object id="1592" gid="90" x="336" y="1456" width="28" height="28"/>
-  <object id="1593" gid="93" x="252" y="1344" width="28" height="28"/>
-  <object id="1594" gid="93" x="252" y="1372" width="28" height="28"/>
-  <object id="1595" gid="93" x="280" y="1372" width="28" height="28"/>
-  <object id="1596" gid="93" x="280" y="1344" width="28" height="28"/>
-  <object id="1597" gid="93" x="252" y="1400" width="28" height="28"/>
-  <object id="1598" gid="93" x="280" y="1400" width="28" height="28"/>
+  <object id="1593" gid="93" x="245" y="1344" width="28" height="28"/>
+  <object id="1594" gid="93" x="245" y="1372" width="28" height="28"/>
+  <object id="1595" gid="93" x="273" y="1372" width="28" height="28"/>
+  <object id="1596" gid="93" x="273" y="1344" width="28" height="28"/>
+  <object id="1597" gid="93" x="245" y="1400" width="28" height="28"/>
+  <object id="1598" gid="93" x="273" y="1400" width="28" height="28"/>
   <object id="1599" gid="93" x="196" y="1456" width="28" height="28"/>
   <object id="1600" gid="93" x="196" y="1428" width="28" height="28"/>
   <object id="1601" gid="93" x="168" y="1428" width="28" height="28"/>
@@ -2232,7 +2232,7 @@
   <object id="1661" gid="85" x="168" y="840" width="28" height="28"/>
  </objectgroup>
  <objectgroup id="94" name="clouds">
-  <object id="1554" gid="22" x="308" y="1372" width="28" height="28"/>
+  <object id="1554" gid="22" x="301" y="1372" width="28" height="28"/>
   <object id="1555" gid="22" x="336" y="1288" width="28" height="28"/>
   <object id="1556" gid="22" x="196" y="1344" width="28" height="28"/>
   <object id="1557" gid="22" x="168" y="1246" width="28" height="28"/>

@@ -2017,7 +2017,7 @@
   </data>
  </layer>
  <objectgroup id="89" name="home">
-  <object id="957" gid="92" x="112" y="84" width="28" height="28"/>
+  <object id="957" gid="92" x="112" y="91" width="28" height="28"/>
   <object id="1329" gid="88" x="364" y="371" width="28" height="28"/>
   <object id="1353" gid="84" x="252" y="140" width="28" height="28"/>
   <object id="1354" gid="83" x="336" y="700" width="28" height="28"/>

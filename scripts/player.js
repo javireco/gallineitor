@@ -5,13 +5,11 @@ Quintus.PlayerScript = function(Q) {
       this._super(p, {
         sprite: "gallina",
         sheet: "gallina",
-        //normal -450. lento -300. rápido -600,frozen 0
         jumpSpeed: -470,
         speed: 0,
         isJumping: false,
         damage: false,
         timeDamage:3,
-                //normal 80, lento 40, rápido 200,frozen 0
         vx: 80,
         gravity:1,
         defaultDirection: "right",
@@ -43,44 +41,44 @@ Quintus.PlayerScript = function(Q) {
     //ejecución cada poco tiempo
     step: function(dt) {
       if (!this.p.win){
-      //inicio de animaciones
-      if (this.p.vx > 0){
-        this.p.direction = 1;
-      }
-      if (this.p.vx < 0){
-        this.p.direction = -1;
-      }
-      if(this.p.isJumping) {
-        if(this.p.vy < 0) {
-          if ( this.p.damage ){
-            this.play("jump_" + this.p.status+ "_damage");
-          }else{
-            this.play("jump_" + this.p.status);
-          }
-        } else if(this.p.vy >= 0) {
-          if ( this.p.damage ){
-            this.play("fall_" + this.p.status+ "_damage");
-          }else{
-            this.play("fall_" + this.p.status);
-          }
+        //inicio de animaciones
+        if (this.p.vx > 0){
+          this.p.direction = 1;
         }
-      }else{
-        if(this.p.vy > 0) {
-          if ( this.p.damage ){
-            this.play("fall_" + this.p.status+ "_damage");
-          }else{
-            this.play("fall_" + this.p.status);
+        if (this.p.vx < 0){
+          this.p.direction = -1;
+        }
+        if(this.p.isJumping) {
+          if(this.p.vy < 0) {
+            if ( this.p.damage ){
+              this.play("jump_" + this.p.status+ "_damage");
+            }else{
+              this.play("jump_" + this.p.status);
+            }
+          } else if(this.p.vy >= 0) {
+            if ( this.p.damage ){
+              this.play("fall_" + this.p.status+ "_damage");
+            }else{
+              this.play("fall_" + this.p.status);
+            }
           }
-        }else
+        }else{
+          if(this.p.vy > 0) {
+            if ( this.p.damage ){
+              this.play("fall_" + this.p.status+ "_damage");
+            }else{
+              this.play("fall_" + this.p.status);
+            }
+          }else
           if ( this.p.damage ){
             this.play("run_" + this.p.status + "_damage");
           }else{
             this.play("run_" + this.p.status);
           }
-      }
-      //control del tiempo que le queda
+        }
+        //control del tiempo que le queda
 
-          Q.state.set("time",Q.state.get("time")-dt);
+        Q.state.set("time",Q.state.get("time")-dt);
         //console.log(Math.round(this.p.time));
         if ( Q.state.get("previousTime") != Math.round(Q.state.get("time")) ){
           Q.state.set("previousTime",Math.round(Q.state.get("time")));
@@ -93,6 +91,7 @@ Quintus.PlayerScript = function(Q) {
             }
           }
 
+          //control de daño por pérdida de huevos
           if (this.p.damage){
             this.p.timeDamage--;
             //console.log(this.p.timeForStatus);
@@ -107,6 +106,7 @@ Quintus.PlayerScript = function(Q) {
 
       }
 
+      //se acaba del tiempo
       if ( Math.round(Q.state.get("time"))<=0 ){
         //console.log("mueto");
         //saca escena de muerto
@@ -127,28 +127,22 @@ Quintus.PlayerScript = function(Q) {
         home.stage.addGrid(home);
         home.play("open");
       }
-      /*for ( i=0;i<Q.state.get("eggsInScene").length;i++){
-        var egg = Q.state.get("eggsInScene").items[i];
-        //if (egg.p.hasCollide){
-          //console.log(egg);
-          egg.play("normal");
-        //}
-      }*/
+
     },
     damage: function() {
-                  //console.log(Q.state.get("eggsInScene"));
+      //console.log(Q.state.get("eggsInScene"));
       this.p.damage = true;
       this.p.timeDamage = 4;
     },
     losePoints: function() {
-                  //console.log(Q.state.get("eggsInScene"));
+      //console.log(Q.state.get("eggsInScene"));
       Q.state.set("score",0);
       if (!Q.state.get("mute")){
         Q.audio.play("loseEggs.mp3");
       }
       this.p.lostEggs = true;
       var home = Q("Home").first();
-        //console.log(home);
+      //console.log(home);
       home.p.type=Q.SPRITE_NONE;
       home.stage.delGrid(home);
       home.stage.addGrid(home);
@@ -175,9 +169,6 @@ Quintus.PlayerScript = function(Q) {
     //funcion de salto con pequeño vuelo
     salta: function() {
 
-      //Q.state.get("eggsInScene").show();
-
-
       if ( !Q.stage(0).paused ){
         if(!this.p.isJumping && this.p.status != "frozen") {
           if (!Q.state.get("mute")){
@@ -189,74 +180,59 @@ Quintus.PlayerScript = function(Q) {
         }
       }
       //así era el revoloteo
-        /*if(!this.p.isJumping) {
-          //console.log("jump");
-          Q.audio.play("jump.mp3");
-          this.p.isJumping = true;
-          iFlySpeed = 400;
-          this.p.vy=this.p.vy-iFlySpeed;
-          iFlySpeed = 200;
-        }else if (iFlySpeed>190 && this.p.vy>0 ){
+      /*if(!this.p.isJumping) {
+      //console.log("jump");
+      Q.audio.play("jump.mp3");
+      this.p.isJumping = true;
+      iFlySpeed = 400;
+      this.p.vy=this.p.vy-iFlySpeed;
+      iFlySpeed = 200;
+    }else if (iFlySpeed>190 && this.p.vy>0 ){
 
-          iFlySpeed = iFlySpeed - 1;
-          this.p.vy=this.p.vy-iFlySpeed;
-        }*/
-    },
-    superSalto: function() {
-      if ( !Q.stage(0).paused ){
-        this.p.vy=-940;
-        this.p.isJumping = true;
-      }
-    },
-    saltito: function() {
-      if ( !Q.stage(0).paused ){
-        this.p.vy=-280;
-        this.p.isJumping = true;
-      }
-    },
-    changeDirection: function(){
-      this.p.vx=this.p.vx*-1;
-      this.p.direction = this.p.direction*-1;
-      if ( this.p.direction==1){
-        this.p.flip= false;
-      }else{
-        this.p.flip= "x";
-      }
-
-
-
-    },
-    setStatus: function(pStatus,ptimeForStatus){
-      this.p.status = pStatus;
-      this.p.timeForStatus = ptimeForStatus;
-      this.p.gravity=1;
-      if (pStatus=="normal"){
-        //normal -450. lento -300. rápido -600,frozen 0
-        this.p.jumpSpeed= -470;
-        //normal 80, lento 40, rápido 200,frozen 0
-        this.p.vx= 60 * this.p.direction;
-      }else if (pStatus=="fast"){
-        //normal -450. lento -300. rápido -600,frozen 0
-        this.p.jumpSpeed= -530;
-        //normal 80, lento 40, rápido 200,frozen 0
-        this.p.vx= 120* this.p.direction;
-        this.p.damage=false;
-
-      }else if (pStatus=="fat"){
-        //normal -450. lento -300. rápido -600,frozen 0
-        this.p.jumpSpeed= -400;
-        //normal 80, lento 40, rápido 200,frozen 0
-        this.p.vx= 30* this.p.direction;
-
-      }else if (pStatus=="frozen"){
-        //normal -450. lento -300. rápido -600,frozen 0
-        this.p.jumpSpeed= 0;
-        //normal 80, lento 40, rápido 200,frozen 0
-        this.p.vx= 0.01* this.p.direction;
-        this.p.damage=false;
-        //this.p.gravity=0;
-      }
-    },
-  });
-
+    iFlySpeed = iFlySpeed - 1;
+    this.p.vy=this.p.vy-iFlySpeed;
+  }*/
+},
+superSalto: function() {
+  if ( !Q.stage(0).paused ){
+    this.p.vy=-940;
+    this.p.isJumping = true;
+  }
+},
+saltito: function() {
+  if ( !Q.stage(0).paused ){
+    this.p.vy=-280;
+    this.p.isJumping = true;
+  }
+},
+changeDirection: function(){
+  this.p.vx=this.p.vx*-1;
+  this.p.direction = this.p.direction*-1;
+  if ( this.p.direction==1){
+    this.p.flip= false;
+  }else{
+    this.p.flip= "x";
+  }
+},
+setStatus: function(pStatus,ptimeForStatus){
+  this.p.status = pStatus;
+  this.p.timeForStatus = ptimeForStatus;
+  this.p.gravity=1;
+  if (pStatus=="normal"){
+    this.p.jumpSpeed= -470;
+    this.p.vx= 60 * this.p.direction;
+  }else if (pStatus=="fast"){
+    this.p.jumpSpeed= -530;
+    this.p.vx= 120* this.p.direction;
+    this.p.damage=false;
+  }else if (pStatus=="fat"){
+    this.p.jumpSpeed= -400;
+    this.p.vx= 30* this.p.direction;
+  }else if (pStatus=="frozen"){
+    this.p.jumpSpeed= 0;
+    this.p.vx= 0.01* this.p.direction;
+    this.p.damage=false;
+  }
+},
+});
 };

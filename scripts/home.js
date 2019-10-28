@@ -1,18 +1,19 @@
 Quintus.HomeScript = function(Q) {
 
 	Q.component("llegadaCasa", {
-	  added: function() {
-	    var entity = this.entity;
-			//si lo tocan al huevo por cualquier lado
-	    entity.on("hit",function(collision) {
+		added: function() {
+			var entity = this.entity;
+			//si toca la casa por cualquier lado
+			entity.on("hit",function(collision) {
 				//console.log("llega a casa");
-	      if(collision.obj.isA("Player") && Q.state.get("score")==Q.state.get("maxScore")){
+				if(collision.obj.isA("Player") && Q.state.get("score")==Q.state.get("maxScore")){
 					if (!Q.state.get("mute")){
 						Q.audio.play('home.mp3');
 					}
+					//good o super dependiendo de los huevos que haya terminado de coger
 					tipoHuevo ="white";
 					if ( Q.state.get("scoreGolden") == Q.state.get("maxScoreGolden") ){
-							tipoHuevo="gold";
+						tipoHuevo="gold";
 					}
 					if (tipoHuevo=="white"){
 						Q.stageScene("endGame",2, { label: "good", button:"Next level" });
@@ -26,29 +27,26 @@ Quintus.HomeScript = function(Q) {
 					collision.obj.p.gravity=0;
 					collision.obj.p.vy=0;
 					collision.obj.play("jump");
-
-					//this.destroy();
-
-	      }
-	    });
-	  }
+				}
+			});
+		}
 	});
 
-  Q.Sprite.extend("Home", {
-    init: function(p) {
-      this._super(p, {gravity:0,
-											sprite:"home",
-											sheet:"home",
-										  sensor: true,
-											type:Q.SPRITE_NONE,
-											collisionMask:Q.SPRITE_DEFAULT,
-											points:[[-12, -1],[12, -1],[12, 16.5],[-12, 16.5]],
-									  	});
-      this.add("llegadaCasa,animation");
+	Q.Sprite.extend("Home", {
+		init: function(p) {
+			this._super(p, {gravity:0,
+				sprite:"home",
+				sheet:"home",
+				sensor: true,
+				type:Q.SPRITE_NONE,
+				collisionMask:Q.SPRITE_DEFAULT,
+				points:[[-12, -1],[12, -1],[12, 16.5],[-12, 16.5]],
+			});
+			this.add("llegadaCasa,animation");
 			this.play("close");
-    },
-    step: function(dt) {
+		},
+		step: function(dt) {
 		}
-  });
+	});
 
 };

@@ -3,18 +3,15 @@ Quintus.CloudScript = function(Q) {
   Q.component("oneWayPlatform", {
     added: function(){
       this.entity.on("step",this,function(){
-        //Cuando el jugador está sobre la nube, no puede atravesarla
+        //Cuando el jugador está sobre la plataforma, no puede atravesarla
         if(this.checkPlayerPos()){
           if(this.entity.p.type!=Q.SPRITE_DEFAULT){
             this.entity.p.type=Q.SPRITE_DEFAULT;
             this.entity.stage.delGrid(this.entity);
             this.entity.stage.addGrid(this.entity);
-            //console.log(this.entity);
           }
-          //this.entity.trigger("playerAbove",Q("Player").first());
-          //console.log("player top");
         }
-        //Cuando el jugador esta bajo la nube se vuelve atravesable
+        //Cuando el jugador esta bajo la plataforma se vuelve atravesable
         else {
           if(this.entity.p.type!=Q.SPRITE_NONE){
             this.entity.p.type=Q.SPRITE_NONE;
@@ -28,7 +25,7 @@ Quintus.CloudScript = function(Q) {
     checkPlayerPos:function(){
       var player = Q("Player").first();
       var playerPos = player.p.y+player.p.h;
-      var objPos = this.entity.p.y+8; //sumo 1.4 por los points de collision
+      var objPos = this.entity.p.y+8; //sumo 8 por los points de collision
       //Devuelve true si el jugador está más alto
       return playerPos<=objPos;
     }
